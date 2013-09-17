@@ -13,14 +13,15 @@ $webAuthUser = $_SERVER['REMOTE_USER'];
 
 // Fetches the Google Spreadsheet as a CSV file.
 // To change the Google Spreadsheet, use the key corresponding to your new document.
-$key = "0AjrnWBpw0TGqdHo3YjVxMVVFcmZwWFZaSzAxeTl0enc";
+$key = "0AjrnWBpw0TGqdFZmLXVxeC1KMjJkVFg3akdMckU3RlE";
 $url = "https://docs.google.com/spreadsheet/pub?key=".$key."&single=true&gid=2&output=csv";
 
 // csv_to_array($filename, $delimiter) converts a CSV file to an associative array
 //   - Takes the first line of the CSV as the header (key)
 //   - Creates a row in the associative array for each new line of the CSV file (value)
+// Put differently, the keys are the column headers of the Google Spreadsheet.
 //
-// @@ For instance, if the CSV file is:
+// @@ For instance, if the CSV file gotten from the Google Spreadsheet is:
 // @@
 // @@ sunetid, hw1, hw2
 // @@ jure, 98, 99
