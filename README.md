@@ -14,6 +14,7 @@ The Python scripts are located in the scripts folder.
 - Download the current Google Spreadsheet as a csv (googlespreadsheet.csv)
 - Run the Python script gradiance-script.py
 - Import the results written to the file result.csv in the Google spreadsheet by copying/pasting the rightmost columns (the order of the rows is the same as in the Google Spreadsheet)
+
 ### To calculate the final grades
 - Download the current Google Spreadsheet as a csv (googlespreadsheet.csv)
 - Run the Python script total-grades-script.py
