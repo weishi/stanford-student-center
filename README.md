@@ -11,8 +11,8 @@ Grades can be entered by teaching staff in the Google Doc, and changes will be r
 - Create a new Google Spreadsheet, and import data from ``sample/sample.csv'' into the spreadsheet.
 - Set the sharing settings to be "Anyone with the link", and enable "Publish to the web". Note the document key that you later have to enter in ``constants.php''.
 - Edit ``constants.php'' to reflect for each class you want to use student center for.
-- Upload the website to the cgi-bin folder on Corn (note that .htaccess enables WebAuth).
-- Run generate_db.php on the web server to generate the SQLite database for logging access
+- Upload the website (i.e. the contents of this folder) to the cgi-bin folder on Corn (note that .htaccess enables WebAuth).
+- Run generate_db.php on the web server to generate the SQLite database for logging accesses to the site.
 
 ## Notes
 - You have to manually update index.php to parse whatever fields you update in the document.
