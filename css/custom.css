@@ -1,0 +1,11 @@
+h3:before {
+content: url(http://snap.stanford.edu/images/h2_img.gif);
+/*margin-left: -33px;*/
+padding-right: 6px;
+}
+h2 {
+	color: #CC3917;
+}
+h3 {
+	color: #74a743;
+}
