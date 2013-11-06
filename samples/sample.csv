@@ -1,8 +1,8 @@
 sunetid,is_scpd,first_name,last_name,email,late_days,hw0_q1,hw0_total,hw1_latedays,hw1_nocover,hw1_q1,hw1_q2,hw1_q3,hw1_total
-0_class_avg,,,,,,,1,,,,,,86.1686746987952
+0_class_avg,,,,,,,1,,,,,,85.432
 0_class_max,,,,,,,1,,,,,,100
-0_class_median,,,,,,,1,,,,,,93
+0_class_median,,,,,,,1,,,,,,90
 0_class_min,,,,,,,1,,,,,,0
-0_class_sd,,,,,,,0,,,,,,17.4975802843904
+0_class_sd,,,,,,,0,,,,,,19.524
 YOURSUNETID,,YOURFIRSTNAME,YOURLASTNAME,someemail@cs.stanford.edu,1,1,1,1,0,17,33,38,88
 ANOTHERSUNETID,,John,Doe,someemail@cs.stanford.edu,0,1,1,0,0,17,22,31,70
