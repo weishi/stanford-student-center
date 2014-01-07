@@ -232,46 +232,21 @@ Please contact us</a> if you think this is a mistake.</h2>
     <div class="row-fluid">
         <div class="span12">
 			<h2>Hi, <strong><?php echo $student["first_name"] . " " . $student["last_name"]; ?></strong>!</h2>
+<?php if (!($student["Final Grade"] != "" && $student["still_in_class"] == "1")) { ?>
 Check out your grades, as well as late periods used. If there are any discrepancies between your actual and recorded grades, <a href="mailto:<?php echo $staffEmail; ?>?Subject=[CS244W Student Center] Grade discrepancy for <?php echo $webAuthUser; ?>">contact us</a>!
+<?php } ?>
         </div>
     </div>
 
-    <?php if ($student["total_grade"]) {?>
-    <!-- Final grade commented out
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="hero-unit">
-                <h2>Your final grade for the class is <?php echo $student["total_grade"] ?>/100. You get <?php echo letterGrade($student["total_grade"]) ?>!</h2>
-                <p>Here is how we computed the final grade:</p>
-                <ul>
-                    <li><strong>Homeworks</strong>
-                        <ul>
-                            <li>HW0 counts for 2% of your final grade</li>
-                            <li>HW1, which was out of 95 points, has been scaled to 100 points</li>
-                            <li>After this scaling, each homework (1, 2, 3, 4) counts for 9.5% of your final grade</li>
-                            <li>So, in total, the homeworks count for <strong>40%</strong> of the final grade</li>
-                        </ul>
-                    </li>
-                    <li><strong>Gradiance quizzes</strong>
-                        <ul>
-                            <li>All the quizzes have been scaled to 20 points</li>
-                            <li>We removed the lowest grade of the 9 Gradiance quizzes (after scaling)</li>
-                            <li>We averaged the 8 remaining quizzes (without weight)</li>
-                            <li>So, in total, the Gradiance quizzes count for <strong>20%</strong> of your final grade</li>
-                        </ul>
-                    </li>
-                    <li><strong>Final exam</strong>
-                        <ul>
-                            <li>We scaled it to 40 points</li>
-                            <li>So, in total, the Final exam counts for <strong>40%</strong> of your final grade</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    -->
-    <?php } ?>
+<?php if ($student["Final Grade"] != "" && $student["still_in_class"] == "1") { ?>
+
+	<h1>Your Final Grade</h1>
+	<h1 id="final_grade"><?php echo $student["Final Grade"] ?></h1>
+	<?php if ($student["Final Grade"] == "A+" || $student["Final Grade"] == "A") { ?>
+	<h1>Congratulations ;)</h1>
+	<?php } ?>
+
+<?php } else { ?>
 
     <div class="row-fluid">
         <div class="span12">
@@ -320,12 +295,12 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td><strong>--</strong></td>
                             <td><strong>--</strong></td>
                             <td><strong>--</strong></td>
-                            <td class="total"><strong><?php echo $student["hw0_total"]; ?></strong>/1</td>
+                            <td class="total"><strong><?php echo intval($student["hw0_total"]) * 100; ?></strong>/100</td>
                             <td class="break"></td>
-                            <td class="stat"><?php echo number_format($averageStats["hw0_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($maxStats["hw0_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($stdevStats["hw0_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($medianStats["hw0_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($averageStats["hw0_total"] * 100,0); ?></td>
+                            <td class="stat"><?php echo number_format($maxStats["hw0_total"] * 100,0); ?></td>
+                            <td class="stat"><?php echo number_format($stdevStats["hw0_total"] * 100,0); ?></td>
+                            <td class="stat"><?php echo number_format($medianStats["hw0_total"] * 100,0); ?></td>
                         </tr>
                         <?php } ?>
                         <?php if ($student["hw1_total"] != "") { ?>
@@ -367,10 +342,10 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td><strong>HW3</strong></td>
                             <td><?php echo lateDisplay($student["hw3_latedays"]); ?></td>
                             <td><?php echo coverDisplay($student["hw3_nocover"]); ?></td>
-                            <td><strong><?php echo $student["hw3q1"]; ?></strong>/25</td>
-                            <td><strong><?php echo $student["hw3q2"]; ?></strong>/30</td>
-                            <td><strong><?php echo $student["hw3q3"]; ?></strong>/20</td>
-                            <td><strong><?php echo $student["hw3q4"]; ?></strong>/25</td>
+                            <td><strong><?php echo $student["hw3_q1"]; ?></strong>/25</td>
+                            <td><strong><?php echo $student["hw3_q2"]; ?></strong>/25</td>
+                            <td><strong><?php echo $student["hw3_q3"]; ?></strong>/25</td>
+                            <td><strong><?php echo $student["hw3_q4"]; ?></strong>/25</td>
                             <td class="total"><strong><?php echo $student["hw3_total"]; ?></strong>/100</td>
                             <td class="break"></td>
                             <td class="stat"><?php echo number_format($averageStats["hw3_total"],0); ?></td>
@@ -384,10 +359,10 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td><strong>HW4</strong></td>
                             <td><?php echo lateDisplay($student["hw4_latedays"]); ?></td>
                             <td><?php echo coverDisplay($student["hw4_nocover"]); ?></td>
-                            <td><strong><?php echo $student["hw4q1"]; ?></strong>/35</td>
-                            <td><strong><?php echo $student["hw4q2"]; ?></strong>/25</td>
-                            <td><strong><?php echo $student["hw4q3"]; ?></strong>/20</td>
-                            <td><strong><?php echo $student["hw4q4"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["hw4_q1"]; ?></strong>/25</td>
+                            <td><strong><?php echo $student["hw4_q2"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["hw4_q3"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["hw4_q4"]; ?></strong>/35</td>
                             <td class="total"><strong><?php echo $student["hw4_total"]; ?></strong>/100</td>
                             <td class="break"></td>
                             <td class="stat"><?php echo number_format($averageStats["hw4_total"],0); ?></td>
@@ -433,11 +408,104 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td class="stat"><?php echo number_format($projMedianStats["proposal_total"],0); ?></td>
                         </tr>
                         <?php } ?>
+					   <?php if ($project["milestone_total"] != "") { ?>
+                        <tr>
+                            <td><strong>Milestone</strong></td>
+                            <td>--</td>
+                            <td class="total"><strong><?php echo (intval($project["milestone_total"]) + intval($student["milestone_adjustment"])); ?></strong>/100</td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format($projAverageStats["milestone_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($projMaxStats["milestone_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($projStdevStats["milestone_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($projMedianStats["milestone_total"],0); ?></td>
+                        </tr>
+                        <?php } ?>
+					   <?php if ($project["report_total"] != "") { ?>
+                        <tr>
+                            <td><strong>Report</strong></td>
+                            <td>--</td>
+                            <td class="total"><strong><?php echo (intval($project["report_total"]) + intval($student["milestone_adjustment"])); ?></strong>/100</td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format(floatval($projAverageStats["report_total"]),0); ?></td>
+                            <td class="stat"><?php echo number_format($projMaxStats["report_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format(floatval($projStdevStats["report_total"]),0); ?></td>
+                            <td class="stat"><?php echo number_format($projMedianStats["report_total"],0); ?></td>
+                        </tr>
+                        <?php } ?>
+					   <?php if ($project["poster_total"] != "") { ?>
+                        <tr>
+                            <td><strong>Poster</strong></td>
+                            <td>--</td>
+                            <td class="total"><strong><?php echo (intval($project["poster_total"]) + intval($student["milestone_adjustment"])); ?></strong>/100</td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format(floatval($projAverageStats["poster_total"]),0); ?></td>
+                            <td class="stat"><?php echo number_format($projMaxStats["poster_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format(floatval($projStdevStats["poster_total"]),0); ?></td>
+                            <td class="stat"><?php echo number_format($projMedianStats["poster_total"],0); ?></td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <?php if ($student["final_grade"] != "" && $student["still_in_class"] == "1") { ?>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <h3>Final Score</h3>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Components</th>
+                            <th>Score</th>
+                            <th class="break"></th>
+                            <th class="stat">Avg.</th>
+                            <th class="stat">Max</th>
+                            <th class="stat">StDev.</th>
+                            <th class="stat">Med.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Homework (1, 2, 3, 4)</td>
+                            <td>12% &sdot; <b><?php echo $student['hw1_total'] ?></b> + 12% &sdot; <b><?php echo $student['hw2_total'] ?></b> + 12% &sdot; <b><?php echo $student['hw3_total'] ?></b> + 12% &sdot; <b><?php echo $student['hw4_total'] ?></b></td>
+                            <td class="break"></td>
+                            <td class="stat">-</td><td class="stat">-</td><td class="stat">-</td><td class="stat">-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Project (Proposal, Milestone, Report, Poster)</td>
+                            <td>10% &sdot; <b><?php echo (intval($project["proposal_total"]) + intval($student["proposal_adjustment"])); ?></b> + 10% &sdot; <b><?php echo (intval($project["milestone_total"]) + intval($student["milestone_adjustment"])); ?></b> + 25% &sdot; <b><?php echo (intval($project["report_total"]) + intval($student["report_adjustment"])); ?></b> + 5% &sdot; <b><?php echo (intval($project["poster_total"]) + intval($student["poster_adjustment"])); ?></b></td>
+                            <td class="break"></td>
+                            <td class="stat">-</td><td class="stat">-</td><td class="stat">-</td><td class="stat">-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Others (HW0, Extra Participation)</td>
+                            <td>2% &sdot; <b><?php echo $student['hw0_total'] * 100 ?></b> + Bonus 1% &sdot; <b><?php echo intval($student['participation_credit']) ?></b></td>
+                            <td class="break"></td>
+                            <td class="stat">-</td><td class="stat">-</td><td class="stat">-</td><td class="stat">-</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td class="total" style="font-size: larger;"><strong><?php echo $student["final_grade"]; ?></strong>/100</td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format($averageStats["final_grade"],0); ?></td>
+                            <td class="stat"><?php echo number_format($maxStats["final_grade"],0); ?></td>
+                            <td class="stat"><?php echo number_format($stdevStats["final_grade"],0); ?></td>
+                            <td class="stat"><?php echo number_format($medianStats["final_grade"],0); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	<?php } ?>
+
+<?php } ?>
 
 
 <?php if ($hasGradiance) { ?>
@@ -642,7 +710,9 @@ Check out your grades, as well as late periods used. If there are any discrepanc
 
 <hr />
 <footer class="footer">
-	<p><small>Summary statistics are rounded to the nearest integer, and are calculated based on students who have handed in their work. Naturally, they are subject to change. If you didn't submit your assignment with a cover sheet, 2 points will be deducted from the total score.</small></p>
+<?php if (!($student["Final Grade"] != "" && $student["still_in_class"] == "1")) { ?>
+	<p><small>Summary statistics are rounded to the nearest integer, and are calculated based on students who have handed in their work. Naturally, they are subject to change. If you didn't submit your assignment with a cover sheet, 2 points will be deducted from the total score. If you exceeded your number of late days, your assignments may be penalized 50%.</small></p>
+<?php } ?>
     <p><small><a href="<?php echo $classWebsite; ?>">Back to <?php echo $className." ".$termName; ?></a></small></p>
 </footer>
 

@@ -1,8 +1,8 @@
-sunetid,is_scpd,first_name,last_name,email,late_days,hw0_q1,hw0_total,hw1_latedays,hw1_nocover,hw1_q1,hw1_q2,hw1_q3,hw1_total
-0_class_avg,,,,,,,1,,,,,,85.432
-0_class_max,,,,,,,1,,,,,,100
-0_class_median,,,,,,,1,,,,,,90
-0_class_min,,,,,,,1,,,,,,0
-0_class_sd,,,,,,,0,,,,,,19.524
-YOURSUNETID,,YOURFIRSTNAME,YOURLASTNAME,someemail@cs.stanford.edu,1,1,1,1,0,17,33,38,88
-ANOTHERSUNETID,,John,Doe,someemail@cs.stanford.edu,0,1,1,0,0,17,22,31,70
+sunetid,is_scpd,first_name,last_name,email,late_days,hw0_q1,hw0_total,hw1_latedays,hw1_nocover,hw1_q1,hw1_q2,hw1_q3,hw1_total,proposal_latedays,proposal_adjustment,hw2_latedays,hw2_nocover,hw2_extra,hw2_q1,hw2_q2,hw2_q3,hw2_q4,hw2_total,hw3_latedays,hw3_nocover,hw3_extra,hw3_q1,hw3_q2,hw3_q3,hw3_q4,hw3_total,milestone_adjustment,hw4_latedays,hw4_nocover,hw4_extra,hw4_q1,hw4_q2,hw4_q3,hw4_q4,hw4_total,report_adjustment,poster_adjustment,participation_credit
+0_class_avg,,,,,,,1,,,,,AVERAGE(L7:L1000),#N/A,,,,,,,,,,#N/A,,,,,,,,#N/A,,,,,,,,,#N/A,,,
+0_class_max,,,,,,,1,,,,,MAX(L7:L1000),0,,,,,,,,,,0,,,,,,,,0,,,,,,,,,0,,,
+0_class_median,,,,,,,1,,,,,MEDIAN(L7:L1000),#N/A,,,,,,,,,,#N/A,,,,,,,,#N/A,,,,,,,,,#N/A,,,
+0_class_min,,,,,,,1,,,,,MIN(L7:L1000),#N/A,,,,,,,,,,#N/A,,,,,,,,#N/A,,,,,,,,,#N/A,,,
+0_class_sd,,,,,,,0,,,,,STDEV(L7:L1000),#N/A,,,,,,,,,,#N/A,,,,,,,,#N/A,,,,,,,,,#N/A,,,
+jcccf,,Justin,Cheng,jcccf@cs.stanford.edu,1,1,1,1,0,17,33,38,88,0,0,0,0,,10,25,10,10,55,0,0,,20,20,20,20,80,,0,,,20,20,20,20,80,10,10,100
+jure,,Jure,Leskovec,jure@cs.stanford.edu,0,1,1,0,0,18,33,34,85,1,0,0,0,,10,24,10,20,64,0,0,,20,20,20,20,80,,1,,,20,20,20,20,80,10,10,0

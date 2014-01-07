@@ -1,0 +1,7 @@
+groupno,mentor,title,sunetid1,sunetid2,sunetid3,proposal_latedays,proposal_total,milestone_total,report_total,poster_total
+0_class_avg,,,,,,,#DIV/0!,#DIV/0!,#DIV/0!,#DIV/0!
+0_class_max,,,,,,,0,0,0,0
+0_class_median,,,,,,,0,0,0,0
+0_class_min,,,,,,,0,0,0,0
+0_class_sd,,,,,,,#NUM!,#NUM!,#NUM!,#NUM!
+-1,Ashwin,Pizza,cbrandt,jcccf,jure,1,10,10,99,100

@@ -9,3 +9,6 @@ h2 {
 h3 {
 	color: #74a743;
 }
+#final_grade {
+	text-align: center; font-size: 96px; border-radius: 16px; background-color: #efefef; padding: 36px; margin: 12px 0px;
+}
