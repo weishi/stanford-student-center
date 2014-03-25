@@ -1,0 +1,7 @@
+scripts/
+samples/
+.git/
+.gitignore
+rsync_exclude.txt
+README.md
+deploy

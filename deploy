@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+    echo "Dry-run"
+    rsync --dry-run -a --no-g --update --progress --exclude-from=rsync_exclude.txt ./ /usr/class/cs244b/cgi-bin/
+elif [ $1 == "go" ]
+then
+    echo "Deploying"
+    rsync -a --no-g --update --progress --exclude-from=rsync_exclude.txt ./ /usr/class/cs244b/cgi-bin/
+else
+    echo "Usage:"
+    echo "./deploy      - dry-run"
+    echo "./deploy go   - deployment"
+fi
