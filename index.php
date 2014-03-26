@@ -95,14 +95,6 @@ foreach($students as $stud) {
     }
 }
 
-function lateDisplayHW0($lateVal) {
-	if($lateVal === "1") {
-		return "<span class=\"label label-success\">Received</span>";
-	} else {
-		return "<span class=\"label label-info\">Not Received</span>";
-	}
-}
-
 function lateDisplay($lateVal) {
 	if($lateVal === "0") {
 		return "<span class=\"label label-success\">Received</span>";
@@ -112,15 +104,6 @@ function lateDisplay($lateVal) {
 		return "<span class=\"label label-warning\">Turned in Late</span>";
 	}
 }
-
-function coverDisplay($coverVal) {
-	if($coverVal === "-2") {
-		return "<span class=\"label label-warning\">None!</span>";
-	} else {
-		return "<span class=\"label label-success\">Present!</span>";
-	}
-}
-
 ?>
 
 
@@ -192,7 +175,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
 
     <div class="row-fluid">
         <div class="span12">
-		<h3>Late Periods</h3>
+		<h3>Late days</h3>
             <?php
             $late_days = $student["late_days"] + $student["hw3_late_days"];
             if ($late_days == 0) {$alertType = "alert-success"; $alertMessage = "Yay!";}
@@ -200,7 +183,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
             else if ($late_days == 2) {$alertType = "alert-warning"; $alertMessage = "Warning!";}
             ?>
             <div class="alert <?php echo $alertType; ?>" >
-                <strong><?php echo $alertMessage ?></strong> You have used <strong><?php echo $late_days ?></strong> out of your 2 allowed late periods.
+                <strong><?php echo $alertMessage ?></strong> You have used <strong><?php echo $late_days ?></strong> out of your 3 allowed late periods.
             </div>
         </div>
     </div>
@@ -216,8 +199,8 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <th>Design</th>
                             <th>Implementation</th>
                             <th>Report</th>
-                            <th>Late day used(Milestone)</th>
-                            <th>Late day used(Final)</th>
+                            <th>Late day used (Milestone)</th>
+                            <th>Late day used (Final submission)</th>
                             <th class="total">Total</th>
                             <th class="break"></th>
                             <th class="stat">Avg.</th>
@@ -230,11 +213,11 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                         <?php if ($student["hw1_total"] != "") { ?>
                         <tr>
                             <td><strong>Mazewar</strong></td>
-                            <td><strong><?php echo $student["hw1_design"]; ?></strong>/20</td>
-                            <td><strong><?php echo $student["hw1_impl"]; ?></strong>/35</td>
-                            <td><strong><?php echo $student["hw1_report"]; ?></strong>/45</td>
-                            <td><?php echo lateDisplay($student["hw1_lateday_milestone"]); ?></td>
-                            <td><?php echo lateDisplay($student["hw1_lateday_final"]); ?></td>
+                            <td><strong><?php echo $student["hw1_design"]; ?></strong>/40</td>
+                            <td><strong><?php echo $student["hw1_impl"]; ?></strong>/40</td>
+                            <td><strong><?php echo $student["hw1_report"]; ?></strong>/20</td>
+                            <td><?php echo $student["hw1_lateday_milestone"]; ?></td>
+                            <td><?php echo $student["hw1_lateday_final"]; ?></td>
                             <td class="total"><strong><?php echo $student["hw1_total"]; ?></strong>/100</td>
                             <td class="break"></td>
                             <td class="stat"><?php echo number_format($averageStats["hw1_total"],0); ?></td>
@@ -246,9 +229,9 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                         <?php if ($student["hw2_total"] != "") { ?>
                         <tr>
                             <td><strong>Mazewar</strong></td>
-                            <td><strong><?php echo $student["hw2_design"]; ?></strong>/20</td>
-                            <td><strong><?php echo $student["hw2_impl"]; ?></strong>/35</td>
-                            <td><strong><?php echo $student["hw2_report"]; ?></strong>/45</td>
+                            <td><strong><?php echo $student["hw2_design"]; ?></strong>/15</td>
+                            <td><strong><?php echo $student["hw2_impl"]; ?></strong>/70</td>
+                            <td><strong><?php echo $student["hw2_report"]; ?></strong>/15</td>
                             <td><?php echo lateDisplay($student["hw2_lateday_milestone"]); ?></td>
                             <td><?php echo lateDisplay($student["hw2_lateday_final"]); ?></td>
                             <td class="total"><strong><?php echo $student["hw2_total"]; ?></strong>/100</td>
