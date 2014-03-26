@@ -199,8 +199,8 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <th>Design</th>
                             <th>Implementation</th>
                             <th>Report</th>
-                            <th>Late day used (Milestone)</th>
-                            <th>Late day used (Final submission)</th>
+                            <th>Late day (Milestone)</th>
+                            <th>Late day (Final submission)</th>
                             <th class="total">Total</th>
                             <th class="break"></th>
                             <th class="stat">Avg.</th>
@@ -228,12 +228,12 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                         <?php } ?>
                         <?php if ($student["hw2_total"] != "") { ?>
                         <tr>
-                            <td><strong>Mazewar</strong></td>
+                            <td><strong>ReplFS</strong></td>
                             <td><strong><?php echo $student["hw2_design"]; ?></strong>/15</td>
                             <td><strong><?php echo $student["hw2_impl"]; ?></strong>/70</td>
                             <td><strong><?php echo $student["hw2_report"]; ?></strong>/15</td>
-                            <td><?php echo lateDisplay($student["hw2_lateday_milestone"]); ?></td>
-                            <td><?php echo lateDisplay($student["hw2_lateday_final"]); ?></td>
+                            <td><?php echo $student["hw2_lateday_milestone"]; ?></td>
+                            <td><?php echo $student["hw2_lateday_final"]; ?></td>
                             <td class="total"><strong><?php echo $student["hw2_total"]; ?></strong>/100</td>
                             <td class="break"></td>
                             <td class="stat"><?php echo number_format($averageStats["hw2_total"],0); ?></td>
