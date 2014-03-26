@@ -1,5 +1,10 @@
 <!--
 \\
+\\ Wei Shi <weishi@cs.stanford.edu>
+\\ CS244B Spring 2014
+\\ https://github.com/weishi/stanford-student-center
+\\ 
+\\ Adapted from
 \\ Student Center
 \\ SŽbastien Robaszkiewicz & Justin Cheng
 \\ 2013
@@ -65,43 +70,8 @@ function csv_to_array($filename='', $delimiter=',') {
 }
 
 
-// letterGrade($n) returns the letter corresponding to the grade $n (out of 100)
-// function letterGrade($n) {
-//     if ($n > 95) {
-//         return "A+";
-//     }
-//     elseif ($n > 90) {
-//         return "A";
-//     }
-//     elseif ($n > 85) {
-//         return "A-";
-//     }
-//     elseif ($n > 80) {
-//         return "B+";
-//     }
-//     elseif ($n > 75) {
-//         return "B";
-//     }
-//     elseif ($n > 70) {
-//         return "B-";
-//     }
-//     elseif ($n > 65) {
-//         return "C+";
-//     }
-//     elseif ($n > 60) {
-//         return "C";
-//     }
-//     elseif ($n > 55) {
-//         return "C-";
-//     }
-//     elseif ($n > 50) {
-//         return "D+";
-//     }
-// }
-
 // $students is the associative array with all the rows from the CSV file.
 $students = csv_to_array($url);
-$projects = csv_to_array($project_url);
 
 // Finds the row corresponding to the logged in student and assign it to $student.
 // If that SUNetID is not in the Google Spreadsheet, assign $student = NULL.
@@ -122,21 +92,6 @@ foreach($students as $stud) {
     }
     if ($stud["sunetid"] == "0_class_median") {
         $medianStats = $stud;
-    }
-}
-
-$project = NULL;
-foreach($projects as $proj) {
-	if ($webAuthUser == $proj["sunetid1"] || $webAuthUser == $proj["sunetid2"] || $webAuthUser == $proj["sunetid3"]) {
-		$project = $proj;
-	} elseif ($proj["groupno"] == "0_class_avg") {
-        $projAverageStats = $proj;
-    } elseif  ($proj["groupno"] == "0_class_max") {
-        $projMaxStats = $proj;
-    } elseif ($proj["groupno"] == "0_class_sd") {
-        $projStdevStats = $proj;
-    } elseif ($proj["groupno"] == "0_class_median") {
-        $projMedianStats = $proj;
     }
 }
 
@@ -196,15 +151,11 @@ function coverDisplay($coverVal) {
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#" style="padding-left: 0;"><strong><?php echo $className." ".$termName; ?></strong> Student Center</a>
+    <a class="navbar-brand" href="#" style="padding-left: 0;">
+        <strong><?php echo $className." ".$termName; ?></strong> Student Center
+    </a>
   </div>
 
-  <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="#">Homework</a></li>
-      <li><a href="#">Final</a></li>
-    </ul>
-  </div>-->
 </nav>
 </div>
 </div>
@@ -233,20 +184,11 @@ Please contact us</a> if you think this is a mistake.</h2>
         <div class="span12">
 			<h2>Hi, <strong><?php echo $student["first_name"] . " " . $student["last_name"]; ?></strong>!</h2>
 <?php if (!($student["Final Grade"] != "" && $student["still_in_class"] == "1")) { ?>
-Check out your grades, as well as late periods used. If there are any discrepancies between your actual and recorded grades, <a href="mailto:<?php echo $staffEmail; ?>?Subject=[CS244W Student Center] Grade discrepancy for <?php echo $webAuthUser; ?>">contact us</a>!
+Check out your grades, as well as late periods used. If there are any discrepancies between your actual and recorded grades, 
+    <a href="mailto:<?php echo $staffEmail; ?>?Subject=[<?php echo $termName; ?>]Grade discrepancy for <?php echo $webAuthUser; ?>">contact us</a>!
 <?php } ?>
         </div>
     </div>
-
-<?php if ($student["Final Grade"] != "" && $student["still_in_class"] == "1") { ?>
-
-	<h1>Your Final Grade</h1>
-	<h1 id="final_grade"><?php echo $student["Final Grade"] ?></h1>
-	<?php if ($student["Final Grade"] == "A+" || $student["Final Grade"] == "A") { ?>
-	<h1>Congratulations ;)</h1>
-	<?php } ?>
-
-<?php } else { ?>
 
     <div class="row-fluid">
         <div class="span12">
@@ -505,7 +447,6 @@ Check out your grades, as well as late periods used. If there are any discrepanc
     </div>
 	<?php } ?>
 
-<?php } ?>
 
 
 <?php if ($hasGradiance) { ?>
