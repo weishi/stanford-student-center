@@ -207,6 +207,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <th class="stat">Max</th>
                             <th class="stat">StDev.</th>
                             <th class="stat">Med.</th>
+                            <th class="stat">Comments</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -224,6 +225,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td class="stat"><?php echo number_format($maxStats["hw1_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($stdevStats["hw1_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($medianStats["hw1_total"],0); ?></td>
+                            <td><?php echo $student["hw1_comment"]; ?></td>
                         </tr>
                         <?php } ?>
                         <?php if ($student["hw2_total"] != "") { ?>
@@ -240,6 +242,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td class="stat"><?php echo number_format($maxStats["hw2_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($stdevStats["hw2_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($medianStats["hw2_total"],0); ?></td>
+                            <td><?php echo $student["hw2_comment"]; ?></td>
                         </tr>
                         <?php } ?>
                     </tbody>
