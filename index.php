@@ -250,6 +250,45 @@ Check out your grades, as well as late periods used. If there are any discrepanc
             </div>
         </div>
     </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <h3>Midterm exam</h3>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Question 1</th>
+                            <th>Question 2</th>
+                            <th>Question 3</th>
+                            <th>Question 4</th>
+                            <th class="total">Total</th>
+                            <th class="break"></th>
+                            <th class="stat">Avg.</th>
+                            <th class="stat">Max</th>
+                            <th class="stat">StDev.</th>
+                            <th class="stat">Med.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($student["mid_total"] != "") { ?>
+                        <tr>
+                            <td><strong><?php echo $student["mid_q1"]; ?></strong>/15</td>
+                            <td><strong><?php echo $student["mid_q2"]; ?></strong>/15</td>
+                            <td><strong><?php echo $student["mid_q3"]; ?></strong>/15</td>
+                            <td><strong><?php echo $student["mid_q4"]; ?></strong>/15</td>
+                            <td class="total"><strong><?php echo $student["mid_total"]; ?></strong>/60</td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format($averageStats["mid_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($maxStats["mid_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($stdevStats["mid_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($medianStats["mid_total"],0); ?></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 <?php } ?>
 
 <hr />
