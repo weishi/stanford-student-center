@@ -242,7 +242,7 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td class="stat"><?php echo number_format($maxStats["hw2_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($stdevStats["hw2_total"],0); ?></td>
                             <td class="stat"><?php echo number_format($medianStats["hw2_total"],0); ?></td>
-                            <td><?php echo $student["hw2_comment"]; ?></td>
+                            <td>See /usr/class/cs244b/sub/2014/pr2/[YOUR_SUNETID]/grade.txt for detail.</td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -257,16 +257,17 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Question 1</th>
-                            <th>Question 2</th>
-                            <th>Question 3</th>
-                            <th>Question 4</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
                             <th class="total">Total</th>
+                            <th class="total">Total(%)</th>
                             <th class="break"></th>
-                            <th class="stat">Avg.</th>
-                            <th class="stat">Max</th>
-                            <th class="stat">StDev.</th>
-                            <th class="stat">Med.</th>
+                            <th class="stat">Avg.(%)</th>
+                            <th class="stat">Max(%)</th>
+                            <th class="stat">StDev.(%)</th>
+                            <th class="stat">Med.(%)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -277,11 +278,63 @@ Check out your grades, as well as late periods used. If there are any discrepanc
                             <td><strong><?php echo $student["mid_q3"]; ?></strong>/15</td>
                             <td><strong><?php echo $student["mid_q4"]; ?></strong>/15</td>
                             <td class="total"><strong><?php echo $student["mid_total"]; ?></strong>/60</td>
+                            <td class="total"><strong><?php echo $student["mid_percent"]; ?></strong></td>
                             <td class="break"></td>
-                            <td class="stat"><?php echo number_format($averageStats["mid_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($maxStats["mid_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($stdevStats["mid_total"],0); ?></td>
-                            <td class="stat"><?php echo number_format($medianStats["mid_total"],0); ?></td>
+                            <td class="stat"><?php echo number_format($averageStats["mid_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($maxStats["mid_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($stdevStats["mid_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($medianStats["mid_percent"],0); ?></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <h3>Final exam</h3>
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Q5</th>
+                            <th>Q6</th>
+                            <th>Q7</th>
+                            <th>Q8</th>
+                            <th>Q9</th>
+                            <th class="total">Total</th>
+                            <th class="total">Total(%)</th>
+                            <th class="break"></th>
+                            <th class="stat">Avg.(%)</th>
+                            <th class="stat">Max(%)</th>
+                            <th class="stat">StDev.(%)</th>
+                            <th class="stat">Med.(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($student["fin_total"] != "") { ?>
+                        <tr>
+                            <td><strong><?php echo $student["fin_q1"]; ?></strong>/10</td>
+                            <td><strong><?php echo $student["fin_q2"]; ?></strong>/10</td>
+                            <td><strong><?php echo $student["fin_q3"]; ?></strong>/10</td>
+                            <td><strong><?php echo $student["fin_q4"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["fin_q5"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["fin_q6"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["fin_q7"]; ?></strong>/20</td>
+                            <td><strong><?php echo $student["fin_q8"]; ?></strong>/23</td>
+                            <td><strong><?php echo $student["fin_q9"]; ?></strong>/27</td>
+                            <td class="total"><strong><?php echo $student["fin_total"]; ?></strong>/160</td>
+                            <td class="total"><strong><?php echo $student["fin_percent"]; ?></strong></td>
+                            <td class="break"></td>
+                            <td class="stat"><?php echo number_format($averageStats["fin_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($maxStats["fin_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($stdevStats["fin_percent"],0); ?></td>
+                            <td class="stat"><?php echo number_format($medianStats["fin_percent"],0); ?></td>
                         </tr>
                         <?php } ?>
                     </tbody>
