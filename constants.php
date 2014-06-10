@@ -1,8 +1,8 @@
 <?php
 
 // Google Spreadsheet Key
-$key = "0AsPT8bAHCr4qdExMY2dLZzJSN256aTh6WlVXQURaUVE";
-$project_key = "0AjV7-Hxx__fZdFcxYWExQlpzcVJ1Y3A2Z0w4OThmblE";
+$key = "";
+$project_key = "";
 
 // Class Configuration Variables
 $className = "CS244B";
